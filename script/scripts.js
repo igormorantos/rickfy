@@ -1,7 +1,6 @@
 const url = "https://rickandmortyapi.com/api/character"
 const url2 = "https://rickandmortyapi.com/api/location"
 const url3 = "https://rickandmortyapi.com/api/episode"
-//const url4 = `https://rickandmortyapi.com/api/character?page${page}`
 const quadP1 = document.querySelector('#personagens1');
 const quadP2 = document.querySelector('#personagens2');
 const quadP3 = document.querySelector('#personagens3');
@@ -29,19 +28,6 @@ async function getAllCharacters() {
         quadP3.src = data.results[randomIndexes[2]].image;
         quadP4.src = data.results[randomIndexes[3]].image;
     }, 2000);
-}
-
-function generateRandomIndexes(count, max) {
-    let indexes = [];
-
-    while (indexes.length < count) {
-        let randomIndex = Math.floor(Math.random() * max);
-        if (!indexes.includes(randomIndex)) {
-            indexes.push(randomIndex);
-        }
-    }
-
-    return indexes;
 }
 
 
@@ -74,3 +60,18 @@ async function getAllEpisodes() {
 getAllCharacters();
 getAllLocations();
 getAllEpisodes();
+
+//selecionar todas as imagens da API de forma aleatoria
+function generateRandomIndexes(count, max) {
+    let indexes = [];
+
+    while (indexes.length < count) {
+        let randomIndex = Math.floor(Math.random() * max);
+        if (!indexes.includes(randomIndex)) {
+            indexes.push(randomIndex);
+        }
+    }
+
+    return indexes;
+}
+
